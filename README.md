@@ -12,7 +12,7 @@ I use Python to collect, process, and validate data, then implement and evaluate
 
 ## About Me
 
-Mechanical engineering student at Soongsil University working across public APIs, sensor data, time-series modeling, and web services. I define the data and evaluation conditions before interpreting a model result, and state where a prototype still needs integration or validation.
+With a mechanical engineering background at Soongsil University, I work across public APIs, sensor data, time-series modeling, and web services. I define the data and evaluation conditions before interpreting a model result, and state where a prototype still needs integration or validation.
 
 ## Data and Implementation Experience
 

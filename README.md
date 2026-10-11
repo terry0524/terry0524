@@ -4,116 +4,80 @@
 
 ### Mechanical Engineering × AI/Data × Physical Systems
 
-I connect experiments, simulation, sensor data, and machine learning to analyze and improve physical systems.
+I use Python to collect, process, and validate data, then implement and evaluate models and services for physical-system problems.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-0B1F33?style=for-the-badge&logo=googlechrome&logoColor=white)](https://mech-insight-portfolio.lovable.app)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-1D4ED8?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/terry0524)
-[![Email](https://img.shields.io/badge/Email-4F46E5?style=for-the-badge&logo=gmail&logoColor=white)](mailto:terry0524@soongsil.ac.kr)
-[![GitHub](https://img.shields.io/badge/GitHub-6D28D9?style=for-the-badge&logo=github&logoColor=white)](https://github.com/terry0524)
+[Portfolio](https://mech-insight-portfolio.lovable.app) · [GitHub](https://github.com/terry0524) · [LinkedIn](https://www.linkedin.com/in/terry0524) · [Email](mailto:terry0524@soongsil.ac.kr)
 
 </div>
 
----
-
 ## About Me
 
-I am a mechanical engineering student at Soongsil University working across physical AI, thermal systems, sensor-based measurement, and time-series modeling. My work links engineering theory with experiments, simulation, data processing, and deployable implementations.
+Mechanical engineering student at Soongsil University working across public APIs, sensor data, time-series modeling, and web services. I define the data and evaluation conditions before interpreting a model result, and state where a prototype still needs integration or validation.
 
-I focus on determining whether a model remains useful outside ideal conditions: under thermal disturbances, measurement uncertainty, changing operating states, and deployment constraints. This supports work in physical AI, engineering analysis, equipment validation, predictive modeling, and research.
+## Data and Implementation Experience
 
-## Core Engineering Areas
-
-| Area | Experience | Tools / Methods |
+| Area | Evidence | Tools / Methods |
 |---|---|---|
-| Thermal & Fluid Systems | Thermal response, heat transfer, fluid behavior, and equipment-level physical interpretation | ANSYS, transient thermal analysis, contact thermal resistance, heat flux analysis |
-| Experimental Analysis | Sensor-data collection, controlled disturbances, hot-plate testing, and theory-to-measurement comparison | Experimental design, sensor data processing, visualization, root-cause analysis |
-| AI / Machine Learning | Regression and supervised learning for physical-system estimation and prediction | Python, Scikit-learn, XGBoost, Edge Impulse, LSTM, BiGRU |
-| Time-Series Forecasting | Building-energy and wind-power forecasting from sequential operational and environmental data | Feature engineering, NWP data, SCADA-related correction, recurrent models |
-| Edge AI / Embedded Deployment | Moving estimation logic from trained models into constrained device-side pipelines | C, C++, Arduino C, CMake, Wio Terminal, Edge Impulse |
-| Engineering Validation | Metric-based comparison, disturbance testing, error analysis, and implementation checks | MAE, RMSE, peak error, validation protocols, competition-rule compliance |
+| Collection & API integration | KHNP XML collector; URL-to-text input in JobDecoder | Python, HTTP/XML, Supabase Edge Functions |
+| Processing & pipelines | Chunked mobility aggregation and spatial joins; building/weather alignment; lag and rolling features | pandas, NumPy, scikit-learn, spatial data tools |
+| Data quality | Missing/stale/outlier flags; schema, duplicate and missing-field checks; source/time/hash records | Python validation, unittest |
+| AI / ML implementation | Ridge/baseline comparison; LSTM/BiGRU/Attention experiments; LLM gateway; pretrained pose inference | scikit-learn, TensorFlow, Lovable gateway, MediaPipe |
+| Service implementation | Static operations dashboard; JD analysis web app; browser-side exercise feedback | React, Next.js, TypeScript, shadcn/ui, Recharts |
+| Evaluation & physical systems | Time-ordered comparisons; disturbance guard, Python replay and C++ implementation; explicit metric tradeoffs | MAE/RMSE, C/C++, sensor processing |
+
+The portfolio update is awaiting publication on its existing Lovable host. Until then, the public repositories below provide the current implementation and validation details.
 
 ## Featured Projects
 
-<details open>
-<summary><strong>1. Robust Core Body Temperature Estimation under Thermal Disturbances</strong></summary>
+### 1. FlexPump AI — Public API Collection and Data Quality
 
-- **Problem:** Estimate core body temperature from sensor data while remaining reliable during external thermal disturbances.
-- **My Contribution:** Built disturbance detection and post-processing around an Edge Impulse regression model, evaluated raw versus processed outputs, and developed C++ and pure C deployment paths with Choice Technology.
-- **Result:** Disturbance peak error decreased from **1.36°C to 0.90°C**. Average MAE changed from approximately **0.178°C to 0.192°C**, so the method improved peak robustness—not average error. A separate integrated evaluation produced MAE of approximately **0.143°C**.
-- **Methods:** Sensor processing · Edge Impulse · C/C++ · hot-plate validation
-- **Link:** Research manuscript in progress; source repository is not public
+- **Problem:** Inspect public pumped-storage observations before using them for analysis.
+- **Implementation:** KHNP Python XML collector, common observation records, STALE/MISSING/OUTLIER flags, daily CSV checks, Ridge versus lag-7 baseline, and unit tests.
+- **Scope:** A separate static dashboard MVP demonstrates the UI. KMA/KPX collectors, SCHEMA_CHANGED, automatic quality-based prediction exclusion, and live dashboard integration are not implemented.
+- **Link:** [Public repository](https://github.com/terry0524/flexpump-ai) · [Static demo](https://terry0524.github.io/flexpump-ai/) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects)
 
-</details>
+### 2. Seoul Mobility Transition — Data Pipeline
 
-<details>
-<summary><strong>2. Wind Power Forecasting</strong></summary>
+- **Problem:** Turn heterogeneous transport and spatial inputs into reproducible district-level analysis.
+- **Implementation:** Source audit, chunked pandas aggregation, spatial master construction, clustering, policy outputs, and validation reports.
+- **Scope:** Raw source data is acquired separately. The README documents acquisition and remaining reproduction requirements; full reproduction requires the documented inputs and QA records.
+- **Link:** [Public repository](https://github.com/terry0524/seoul-mobility-transition-2026) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects)
 
-- **Problem:** Forecast wind-power output from NWP data while handling SCADA-related corrections within competition rules.
-- **My Contribution:** Engineered weather features, trained XGBoost models, and implemented a rule-compliant correction workflow.
-- **Result:** Completed an end-to-end forecasting and correction pipeline; validation scores are omitted until a supporting artifact is public.
-- **Methods:** NWP feature engineering · XGBoost · time-series validation
-- **Link:** Source repository is not public
+### 3. CBT / TempShield AI — Disturbance-Aware Sensor Processing
 
-</details>
+- **Problem:** Limit transient error under thermal disturbances while checking the aggregate-error tradeoff.
+- **Implementation:** Temperature-rate cues, a causal hysteresis/hold/recovery guard, Python replay/evaluation, and C++ implementation.
+- **Evaluation:** The revised manuscript reports median interval peak error 0.275°C → 0.210°C, with 93/104 selected intervals improving. Aggregate MAE changes from 0.178°C to 0.191°C. These are reference-relative results; 74 file entries are not 74 independent participants or recordings.
+- **Research status:** Accepted for publication in International Journal of Precision Engineering and Manufacturing-Smart Technology on **2026-10-06**.
+- **Access:** Company-provided original/derived data and code with unclear disclosure rights are not public. [Portfolio](https://mech-insight-portfolio.lovable.app/#projects)
 
-<details>
-<summary><strong>3. Building Cooling Load Prediction</strong></summary>
+### 4. Building Cooling Electricity Prediction
 
-- **Problem:** Predict floor-level cooling-energy demand from nonlinear building time-series data.
-- **My Contribution:** Built the preprocessing and sliding-window pipeline, trained LSTM and BiGRU models, and tested an Attention-based architecture.
-- **Result:** Completed a controlled three-model comparison using MAE and RMSE to evaluate floor-level cooling-load prediction.
-- **Methods:** Python · TensorFlow · recurrent time-series models
-- **Link:** [Portfolio case study](https://mech-insight-portfolio.lovable.app/projects/cooling-load-prediction)
+- **Problem:** Predict floor-level AC electricity consumption from CU-BEMS and separately acquired weather data.
+- **Implementation:** Time alignment, 10-minute preprocessing, train-only scaling, sliding windows, and LSTM/BiGRU/BiGRU+Attention comparisons using MAE/RMSE/R².
+- **Scope:** The target is AC electricity consumption, not measured thermal cooling load. Building airflow was not used. Attention did not improve every floor; filtered time gaps and weather interpolation are limitations.
+- **Link:** [Public repository](https://github.com/terry0524/building-cooling-load-prediction) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects). Original datasets are acquired separately.
 
-</details>
+## Additional Projects
 
-<details>
-<summary><strong>4. ANSYS Thermal Analysis</strong></summary>
-
-- **Problem:** Determine the allowable input power of an electronic component while accounting for transient behavior and contact thermal resistance.
-- **My Contribution:** Built the ANSYS thermal model, interpreted temperature and heat-flux fields, and performed the input-power parameter study.
-- **Result:** Calculated a maximum allowable chip input power of approximately **13.154 W**.
-- **Methods:** Transient thermal simulation · contact resistance · heat-flux analysis
-- **Link:** [Portfolio case study](https://mech-insight-portfolio.lovable.app/projects/ansys-thermal-analysis)
-
-</details>
-
-<details>
-<summary><strong>5. King Sejong Station Climate Analysis</strong></summary>
-
-- **Problem:** Examine temperature anomalies and their relationship with regional sea-ice conditions across incomplete multi-year observations.
-- **My Contribution:** Integrated KPDC weather and NSIDC sea-ice data, detected abnormal-temperature sequences, and evaluated lagged relationships.
-- **Result:** Analyzed **1,493 daily records**, identified **36 consecutive abnormal-temperature events**, and found the strongest lag correlation at **−30 days** with **r ≈ −0.462**.
-- **Methods:** Multi-source time-series integration · event detection · lag correlation
-- **Link:** Source repository is not public
-
-</details>
-
-## Selected Engineering Results
-
-| Project | Metric / Outcome | Engineering Significance |
+| Project | Implementation and limits | Links |
 |---|---|---|
-| Core Body Temperature Estimation | Peak error **1.36°C → 0.90°C**; average MAE **0.178°C → 0.192°C** | Improved disturbance robustness, with the average-error tradeoff stated explicitly |
-| ANSYS Thermal Analysis | Maximum allowable chip input power of approximately **13.154 W** | Converts simulation results into an equipment-design constraint |
-| King Sejong Station Climate Analysis | **1,493 records**, **36 events**, strongest correlation at lag **−30 days**, **r ≈ −0.462** | Connects multi-source climate data with event and lag-based interpretation |
-| Building Cooling Load Prediction | Controlled comparison of **LSTM, BiGRU, and Attention-based models** | Evaluates architecture choice for floor-level energy forecasting |
+| JobDecoder | React/Vite + Supabase Edge Functions; URL input collection, Lovable AI gateway, response normalization and report UI. Match scores are AI outputs with no verified accuracy claim. | [Demo](https://job-decoder-0524.lovable.app) · [Case study](https://mech-insight-portfolio.lovable.app/project/job-decoder) |
+| FormCheck AI | Browser-side MediaPipe PoseLandmarker plus deterministic exercise state/feedback logic. Uses a pretrained model; physical-device and exercise reliability validation remains limited. | [Demo](https://formcheck-ai-phi.vercel.app) · [Public repository](https://github.com/terry0524/formcheck-ai) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects) |
+
+## Other Engineering Work
+
+Wind-power forecasting, polar climate analysis, ANSYS thermal analysis, fluid experiments, and embedded course work provide supporting engineering context. They are not additional featured projects. [ANSYS case study](https://mech-insight-portfolio.lovable.app/project/ansys-thermal-analysis)
+
+Smart Conveyor is a three-person course project connecting vision classification with rejection/recheck control. Its public repository is deferred until my authored scope and disclosure rights are confirmed.
 
 ## Technical Skills
 
-| Priority | Skills |
-|---|---|
-| Engineering & Validation | Mechanical Engineering · Heat Transfer · Fluid Mechanics · Thermal Analysis · Experimental Analysis · Engineering Validation · Root Cause Analysis |
-| Data & Predictive Modeling | Python · Pandas · NumPy · Matplotlib · Scikit-learn · XGBoost · LSTM · BiGRU · Time-Series Forecasting |
-| Embedded & Sensor Systems | Edge Impulse · Sensor Data Processing · Arduino C · C · C++ · CMake · Wio Terminal · MQTT |
-| Engineering Tools | ANSYS · Jupyter · Tableau · Git · GitHub |
+- **Data:** Python, pandas, NumPy, scikit-learn, time-series preprocessing, validation
+- **AI / services:** TensorFlow, LSTM, BiGRU, React, Next.js, TypeScript, Supabase Edge Functions, Lovable AI gateway, MediaPipe
+- **Physical systems:** C/C++, Arduino, MQTT, Edge Impulse, ANSYS, thermal/fluid analysis
+- **Workflow:** Git/GitHub, Jupyter, unit testing and metric-based comparison
 
-## Research and Current Work
-
-- Evaluating robustness-focused core body temperature estimation under controlled thermal disturbances
-- Expanding hot-plate-based validation and disturbance-response analysis
-- Porting inference and post-processing logic into a pure C deployment path
-- Developing NWP-based wind-power forecasting and SCADA-related correction methods
-- Preparing a research manuscript on sensor-based temperature estimation and disturbance robustness
 
 ## Certifications and Courses
 
@@ -124,22 +88,6 @@ I focus on determining whether a model remains useful outside ideal conditions: 
 - Machine Learning Nuts and Bolts
 - Airbus Beyond: Supply Chains
 
-## GitHub Analytics
-
-<div align="center">
-  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=terry0524&theme=tokyonight" alt="Jongseok Park's GitHub stats" />
-  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=terry0524&theme=tokyonight" alt="Most-used languages in public GitHub repositories" />
-  <br />
-  <img height="165" src="https://streak-stats.demolab.com?user=terry0524&hide_border=true&theme=tokyonight" alt="Jongseok Park's GitHub contribution streak" />
-</div>
-
-> GitHub widgets reflect activity visible to their respective public APIs and may not represent private project work.
-
 ## Connect
 
-- [LinkedIn](https://www.linkedin.com/in/terry0524)
-- [Portfolio](https://mech-insight-portfolio.lovable.app)
-- [Email](mailto:terry0524@soongsil.ac.kr)
-- [GitHub](https://github.com/terry0524)
-
-Open to conversations about physical AI, engineering analysis, validation, and data-driven mechanical systems.
+[Portfolio](https://mech-insight-portfolio.lovable.app) · [LinkedIn](https://www.linkedin.com/in/terry0524) · [Email](mailto:terry0524@soongsil.ac.kr)

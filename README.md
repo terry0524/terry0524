@@ -25,8 +25,6 @@ With a mechanical engineering background at Soongsil University, I work across p
 | Service implementation | Static operations dashboard; JD analysis web app; browser-side exercise feedback | React, Next.js, TypeScript, shadcn/ui, Recharts |
 | Evaluation & physical systems | Time-ordered comparisons; disturbance guard, Python replay and C++ implementation; explicit metric tradeoffs | MAE/RMSE, C/C++, sensor processing |
 
-The portfolio update is awaiting publication on its existing Lovable host. Until then, the public repositories below provide the current implementation and validation details.
-
 ## Featured Projects
 
 ### 1. FlexPump AI — Public API Collection and Data Quality
@@ -34,14 +32,14 @@ The portfolio update is awaiting publication on its existing Lovable host. Until
 - **Problem:** Inspect public pumped-storage observations before using them for analysis.
 - **Implementation:** KHNP Python XML collector, common observation records, STALE/MISSING/OUTLIER flags, daily CSV checks, Ridge versus lag-7 baseline, and unit tests.
 - **Scope:** A separate static dashboard MVP demonstrates the UI. KMA/KPX collectors, SCHEMA_CHANGED, automatic quality-based prediction exclusion, and live dashboard integration are not implemented.
-- **Link:** [Public repository](https://github.com/terry0524/flexpump-ai) · [Static demo](https://terry0524.github.io/flexpump-ai/) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects)
+- **Link:** [Public repository](https://github.com/terry0524/flexpump-ai) · [Static demo](https://terry0524.github.io/flexpump-ai/) · [Case study](https://mech-insight-portfolio.lovable.app/project/flexpump-ai)
 
 ### 2. Seoul Mobility Transition — Data Pipeline
 
 - **Problem:** Turn heterogeneous transport and spatial inputs into reproducible district-level analysis.
 - **Implementation:** Source audit, chunked pandas aggregation, spatial master construction, clustering, policy outputs, and validation reports.
 - **Scope:** Raw source data is acquired separately. The README documents acquisition and remaining reproduction requirements; full reproduction requires the documented inputs and QA records.
-- **Link:** [Public repository](https://github.com/terry0524/seoul-mobility-transition-2026) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects)
+- **Link:** [Public repository](https://github.com/terry0524/seoul-mobility-transition-2026) · [Case study](https://mech-insight-portfolio.lovable.app/project/seoul-mobility-transition)
 
 ### 3. CBT / TempShield AI — Disturbance-Aware Sensor Processing
 
@@ -49,21 +47,21 @@ The portfolio update is awaiting publication on its existing Lovable host. Until
 - **Implementation:** Temperature-rate cues, a causal hysteresis/hold/recovery guard, Python replay/evaluation, and C++ implementation.
 - **Evaluation:** The revised manuscript reports median interval peak error 0.275°C → 0.210°C, with 93/104 selected intervals improving. Aggregate MAE changes from 0.178°C to 0.191°C. These are reference-relative results; 74 file entries are not 74 independent participants or recordings.
 - **Research status:** Accepted for publication in International Journal of Precision Engineering and Manufacturing-Smart Technology on **2026-10-06**.
-- **Access:** Company-provided original/derived data and code with unclear disclosure rights are not public. [Portfolio](https://mech-insight-portfolio.lovable.app/#projects)
+- **Access:** Company-provided original/derived data and code with unclear disclosure rights are not public. [Case study](https://mech-insight-portfolio.lovable.app/project/cbt-tempshield)
 
 ### 4. Building Cooling Electricity Prediction
 
 - **Problem:** Predict floor-level AC electricity consumption from CU-BEMS and separately acquired weather data.
 - **Implementation:** Time alignment, 10-minute preprocessing, train-only scaling, sliding windows, and LSTM/BiGRU/BiGRU+Attention comparisons using MAE/RMSE/R².
 - **Scope:** The target is AC electricity consumption, not measured thermal cooling load. Building airflow was not used. Attention did not improve every floor; filtered time gaps and weather interpolation are limitations.
-- **Link:** [Public repository](https://github.com/terry0524/building-cooling-load-prediction) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects). Original datasets are acquired separately.
+- **Link:** [Public repository](https://github.com/terry0524/building-cooling-load-prediction) · [Case study](https://mech-insight-portfolio.lovable.app/project/cooling-load-prediction). Original datasets are acquired separately.
 
 ## Additional Projects
 
 | Project | Implementation and limits | Links |
 |---|---|---|
 | JobDecoder | React/Vite + Supabase Edge Functions; URL input collection, Lovable AI gateway, response normalization and report UI. Match scores are AI outputs with no verified accuracy claim. | [Demo](https://job-decoder-0524.lovable.app) · [Case study](https://mech-insight-portfolio.lovable.app/project/job-decoder) |
-| FormCheck AI | Browser-side MediaPipe PoseLandmarker plus deterministic exercise state/feedback logic. Uses a pretrained model; physical-device and exercise reliability validation remains limited. | [Demo](https://formcheck-ai-phi.vercel.app) · [Public repository](https://github.com/terry0524/formcheck-ai) · [Portfolio](https://mech-insight-portfolio.lovable.app/#projects) |
+| FormCheck AI | Browser-side MediaPipe PoseLandmarker plus deterministic exercise state/feedback logic. Uses a pretrained model; physical-device and exercise reliability validation remains limited. | [Demo](https://formcheck-ai-phi.vercel.app) · [Public repository](https://github.com/terry0524/formcheck-ai) · [Case study](https://mech-insight-portfolio.lovable.app/project/formcheck-ai) |
 
 ## Other Engineering Work
 
